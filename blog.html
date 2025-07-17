@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the Recipiyy blog for cooking tips, recipe ideas, and culinary inspiration">
+    <title>Blog - Recipiyy</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
+    </noscript>
+    
+    <style>
+        :root {
+            /* Color palette */
+            --primary: #FF6B6B;
+            --primary-dark: #FF5252;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+            
+            /* Typography */
+            --font-main: 'Poppins', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            
+            /* Border radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+        }
+        
+        /* Utility classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .section {
+            padding: var(--space-xl) 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: var(--space-sm) auto;
+            border-radius: var(--radius-full);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            transition: all var(--transition-normal);
+            gap: var(--space-xs);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Grid system */
+        .grid {
+            display: grid;
+            gap: var(--space-md);
+        }
+        
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        @media (max-width: 768px) {
+            .grid-cols-2,
+            .grid-cols-3,
+            .grid-cols-4 {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+            transition: all var(--transition-normal);
+        }
+        
+        .header.scrolled {
+            padding: var(--space-xs) 0;
+            box-shadow: var(--shadow-md);
+            background-color: var(--primary);
+        }
+        
+        .header.scrolled .nav-link,
+        .header.scrolled .logo,
+        .header.scrolled .btn-outline {
+            color: white;
+        }
+        
+        .header.scrolled .nav-link::after {
+            background-color: var(--accent);
+        }
+        
+        .header.scrolled .btn-outline {
+            border-color: white;
+        }
+        
+        .header.scrolled .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .header.scrolled .mobile-menu-btn span {
+            background-color: white;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--space-md);
+        }
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .logo-icon {
+            color: var(--secondary);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            flex-grow: 1;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: var(--space-xs) 0;
+            font-weight: 500;
+            color: var(--dark);
+            transition: color var(--transition-normal);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width var(--transition-normal);
+        }
+        
+        /* Dropdown menu */
+        .nav-item {
+            position: relative;
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            border-radius: var(--radius-md);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all var(--transition-normal);
+            z-index: 1000;
+        }
+        
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: var(--space-xs) var(--space-md);
+            color: var(--dark);
+            transition: background-color var(--transition-fast);
+        }
+        
+        .dropdown-link:hover {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+        
+        .header.scrolled .dropdown {
+            background-color: var(--primary-dark);
+        }
+        
+        .header.scrolled .dropdown-link {
+            color: white;
+        }
+        
+        .header.scrolled .dropdown-link:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .login-btn {
+            margin-left: auto;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            padding: 0;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--dark);
+            transition: all var(--transition-normal);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        @media (max-width: 992px) {
+            .nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: var(--space-md);
+                box-shadow: var(--shadow-md);
+                transform: translateY(-150%);
+                transition: transform var(--transition-normal);
+                z-index: 999;
+            }
+            
+            .nav.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .dropdown {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: transparent;
+                display: none;
+            }
+            
+            .nav-item.active .dropdown {
+                display: block;
+            }
+            
+            .login-btn {
+                margin-left: 0;
+            }
+        }
+        
+        /* Blog section */
+        .blog {
+            background-color: var(--light);
+        }
+        
+        .blog-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .blog-post {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-lg);
+            overflow: hidden;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .blog-post-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: var(--radius-lg);
+            border-top-right-radius: var(--radius-lg);
+        }
+        
+        .blog-post-content {
+            padding: var(--space-md);
+        }
+        
+        .blog-post-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .blog-post-meta {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-sm);
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .blog-post-excerpt {
+            color: var(--gray);
+            margin-bottom: var(--space-md);
+        }
+        
+        .blog-post-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        @media (max-width: 768px) {
+            .blog-container {
+                margin: var(--space-md);
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: var(--space-xl) 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+        
+        .footer-about {
+            max-width: 300px;
+        }
+        
+        .footer-title {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-md);
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .footer-link a {
+            color: var(--light-gray);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-link a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all var(--transition-fast);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--space-md);
+            right: var(--space-md);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                Recipiyy <i class="fas fa-utensils logo-icon"></i>
+            </a>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="recipes.html" class="nav-link">Recipes</a>
+                <div class="nav-item">
+                    <a href="categories.html" class="nav-link">Categories</a>
+                    <div class="dropdown">
+                        <a href="categories.html#breakfast" class="dropdown-link">Breakfast</a>
+                        <a href="categories.html#lunch" class="dropdown-link">Lunch</a>
+                        <a href="categories.html#dinner" class="dropdown-link">Dinner</a>
+                        <a href="categories.html#desserts" class="dropdown-link">Desserts</a>
+                        <a href="categories.html#vegan" class="dropdown-link">Vegan</a>
+                        <a href="categories.html#healthy" class="dropdown-link">Healthy</a>
+                        <a href="categories.html#quick-meals" class="dropdown-link">Quick Meals</a>
+                        <a href="categories.html#baking" class="dropdown-link">Baking</a>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <a href="login.html" class="btn btn-outline login-btn">Login</a>
+            
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Blog Section -->
+    <section class="section blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recipiyy Blog</h2>
+                <p>Discover cooking tips, recipe ideas, and culinary inspiration</p>
+            </div>
+            
+            <div class="blog-container grid grid-cols-3">
+                <div class="blog-post">
+                    <img src="5 Fresh Summer Salads to Brighten Your Table.webp" alt="Fresh summer salad with colorful vegetables" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">5 Fresh Summer Salads to Brighten Your Table</h3>
+                        <div class="blog-post-meta">
+                            <span>July 10, 2025</span>
+                            <span>by Chef Anna</span>
+                        </div>
+                        <p class="blog-post-excerpt">Explore vibrant summer salads packed with seasonal ingredients to keep your meals light and refreshing...</p>
+                        <a href="https://www.bonappetit.com/recipes/slideshow/summer-salad-recipes" class="blog-post-read-more btn btn-outline" target="_blank" rel="noopener noreferrer">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="Top 10 Baking Tips for Perfect Pastries.jpg" alt="Freshly baked pastries on a table" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">Top 10 Baking Tips for Perfect Pastries</h3>
+                        <div class="blog-post-meta">
+                            <span>July 5, 2025</span>
+                            <span>by Pastry Chef Marie</span>
+                        </div>
+                        <p class="blog-post-excerpt">Master the art of baking with these essential tips for creating flaky, delicious pastries every time...</p>
+                        <a href="https://www.seriouseats.com/baking-tips-techniques" class="blog-post-read-more btn btn-outline" target="_blank" rel="noopener noreferrer">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38" alt="Vegan comfort food dish" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">Vegan Comfort Food for Cozy Nights</h3>
+                        <div class="blog-post-meta">
+                            <span>June 28, 2025</span>
+                            <span>by Chef Liam</span>
+                        </div>
+                        <p class="blog-post-excerpt">Discover plant-based comfort food recipes that warm the soul and satisfy your cravings...</p>
+                        <a href="https://www.bbcgoodfood.com/recipes/collection/vegan-comfort-food" class="blog-post-read-more btn btn-outline" target="_blank" rel="noopener noreferrer">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="Meal Prep Hacks for Busy Weekdays.jpg" alt="Meal prep containers with healthy food" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">Meal Prep Hacks for Busy Weekdays</h3>
+                        <div class="blog-post-meta">
+                            <span>June 20, 2025</span>
+                            <span>by Nutritionist Sarah</span>
+                        </div>
+                        <p class="blog-post-excerpt">Save time and eat healthy with these clever meal prep strategies for a stress-free week...</p>
+                        <a href="https://www.thekitchn.com/meal-prep-tips-236198" class="blog-post-read-more btn btn-outline" target="_blank" rel="noopener noreferrer">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="Ultimate Guide to Grilling Like a Pro.webp" alt="Grilled meat and vegetables on a barbecue" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">Ultimate Guide to Grilling Like a Pro</h3>
+                        <div class="blog-post-meta">
+                            <span>June 15, 2025</span>
+                            <span>by Chef Mark</span>
+                        </div>
+                        <p class="blog-post-excerpt">Fire up the grill with confidence using our expert tips and techniques for perfect results...</p>
+                        <a href="https://www.foodandwine.com/cooking-techniques/grilling/grilling-tips-techniques" class="blog-post-read-more btn btn-outline" target="_blank" rel="noopener noreferrer">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="Holiday Desserts to Sweeten Your Celebrations.webp" alt="Festive holiday dessert with decorations" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">Holiday Desserts to Sweeten Your Celebrations</h3>
+                        <div class="blog-post-meta">
+                            <span>June 10, 2025</span>
+                            <span>by Baker Emily</span>
+                        </div>
+                        <p class="blog-post-excerpt">Impress your guests with these festive dessert recipes that are sure to delight...</p>
+                        <a href="https://www.epicurious.com/recipes-menus/holiday-desserts-gallery" class="blog-post-read-more btn btn-outline" target="_blank" rel="noopener noreferrer">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="btn btn-primary">Load More Posts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3 class="footer-logo">Recipiyy <i class="fas fa-utensils"></i></h3>
+                    <p>Vibrant recipes to spark your culinary passion. Join our community of food lovers today!</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://pinterest.com" class="social-link" aria-label="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Recipes</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="recipes.html">All Recipes</a></li>
+                        <li class="footer-link"><a href="categories.html#breakfast">Breakfast</a></li>
+                        <li class="footer-link"><a href="categories.html#lunch">Lunch</a></li>
+                        <li class="footer-link"><a href="categories.html#dinner">Dinner</a></li>
+                        <li class="footer-link"><a href="categories.html#desserts">Desserts</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about.html">About Us</a></li>
+                        <li class="footer-link"><a href="contact.html">Contact</a></li>
+                        <li class="footer-link"><a href="faq.html">FAQ</a></li>
+                        <li class="footer-link"><a href="terms.html">Terms of Service</a></li>
+                        <li class="footer-link"><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Community</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="blog.html">Blog</a></li>
+                        <li class="footer-link"><a href="forum.html">Forum</a></li>
+                        <li class="footer-link"><a href="events.html">Events</a></li>
+                        <li class="footer-link"><a href="newsletter.html">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Recipiyy. All rights reserved by Qureshi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Dropdown toggle for mobile
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    item.classList.toggle('active');
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Close mobile menu when clicking a nav link
+        const navLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                nav.classList.remove('active');
+                navItems.forEach(item => item.classList.remove('active'));
+            });
+        });
+    </script>
+</body>
+</html>
