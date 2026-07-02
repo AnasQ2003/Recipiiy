@@ -187,12 +187,15 @@ Recipiiy applies a clean and vibrant CSS variable token system:
 
 ## 📄 License
 
-Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
+© 2026 **Anas Ahmed Qureshi**. All Rights Reserved.
+
 
 ---
 
 <div align="center">
 
 Made with 🍳 by [AnasQ2003](https://github.com/AnasQ2003)
+
+⭐ If you find this project useful, please give it a star!
 
 </div>
