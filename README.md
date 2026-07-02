@@ -12,8 +12,6 @@
 
 > **Recipiiy** is an interactive, multi-page web ecosystem crafted for home cooks and food enthusiasts. Explore detailed categories, filter and expand ingredients on cards, read culinary blogs, register for masterclasses, join forum discussions, and subscribe to premium meal plans.
 
-[🔗 View Repository](https://github.com/AnasQ2003/Recipiiy) · [🐛 Report Bug](https://github.com/AnasQ2003/Recipiiy/issues) · [✨ Request Feature](https://github.com/AnasQ2003/Recipiiy/issues)
-
 </div>
 
 ---
