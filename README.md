@@ -12,9 +12,7 @@
 
 > **Recipiiy** is an interactive, multi-page web ecosystem crafted for home cooks and food enthusiasts. Explore detailed categories, filter and expand ingredients on cards, read culinary blogs, register for masterclasses, join forum discussions, and subscribe to premium meal plans.
 
-### 🌐 [**Live Demo → anasq2003.github.io/Recipiiy**](https://anasq2003.github.io/Recipiiy/)
-
-[🔗 View Repository](https://github.com/AnasQ2003/Recipiiy) · [🐛 Report Bug](https://github.com/AnasQ2003/Recipiiy/issues) · [✨ Request Feature](https://github.com/AnasQ2003/Recipiiy/issues)
+### 🌐 [**Live Demo → anasq2003.github.io/Recipiiy**](https://recipiiy.netlify.app/)
 
 </div>
 
@@ -196,12 +194,14 @@ Recipiiy/
 
 ## 📄 License
 
-Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
+© Recipiiy---2026 **Anas Ahmed Qureshi**. All Rights Reserved.
 
 ---
 
 <div align="center">
 
 Made with 🍳 by [AnasQ2003](https://github.com/AnasQ2003)
+
+⭐ If you find this project useful, please give it a star!
 
 </div>
