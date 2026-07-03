@@ -12,6 +12,10 @@
 
 > **Recipiiy** is an interactive, multi-page web ecosystem crafted for home cooks and food enthusiasts. Explore detailed categories, filter and expand ingredients on cards, read culinary blogs, register for masterclasses, join forum discussions, and subscribe to premium meal plans.
 
+### 🌐 [**Live Demo → anasq2003.github.io/Recipiiy**](https://anasq2003.github.io/Recipiiy/)
+
+[🔗 View Repository](https://github.com/AnasQ2003/Recipiiy) · [🐛 Report Bug](https://github.com/AnasQ2003/Recipiiy/issues) · [✨ Request Feature](https://github.com/AnasQ2003/Recipiiy/issues)
+
 </div>
 
 ---
@@ -49,23 +53,15 @@ Recipiiy is designed as a modular **multi-page static platform** with zero backe
 
 ### Option 1 — Open Files Directly
 ```bash
-# Clone the repository
 git clone https://github.com/AnasQ2003/Recipiiy.git
-
-# Move into folder
 cd Recipiiy
-
-# Open home page
 start index.html      # Windows
 open index.html       # macOS
 ```
 
 ### Option 2 — Serve Locally (Recommended)
 ```bash
-# Start a simple HTTP server using Python
 python -m http.server 3000
-
-# Access on browser
 # http://localhost:3000/index.html
 ```
 
@@ -75,21 +71,18 @@ python -m http.server 3000
 
 ```
 Recipiiy/
-│
-├── index.html                            # 🏠 Home page (Hero banner, featured grids, footer menu)
-├── recipes.html                          # 🥗 Recipe cards archives (avocado toast, beef stir-fry, steak)
-├── categories.html                       # 🏷️ Food categories grids (dietary lists)
-├── about.html                            # ℹ️ Portal mission, statistics summary, core ideals
-├── contact.html                          # 📞 Get in touch forms with map locator frames
-├── login.html                            # 🔑 User login and credential validation screens
-├── faq.html                              # ❓ Collapsible FAQ sections
-├── blog.html                             # 📝 Cooking tips articles grid
-├── forum.html                            # 💬 Discussion thread listings board
-├── events.html                           # 📅 Cooking masterclass workshops lists
-├── newsletter.html                       # 📧 Subscription email signup forms
-│
-├── a.png to n.png                        # 📸 Platform screenshot files
-├── *.jpg / *.webp / *.avif               # 🥑 High-definition recipe card cover images
+├── index.html        # 🏠 Home page
+├── recipes.html      # 🥗 Recipe cards archives
+├── categories.html   # 🏷️ Food categories grids
+├── about.html        # ℹ️ Portal mission & core ideals
+├── contact.html      # 📞 Contact forms with map
+├── login.html        # 🔑 User login screens
+├── faq.html          # ❓ Collapsible FAQ sections
+├── blog.html         # 📝 Cooking tips articles grid
+├── forum.html        # 💬 Discussion thread listings
+├── events.html       # 📅 Cooking masterclass workshops
+├── newsletter.html   # 📧 Subscription email signup
+├── a.png to n.png    # 📸 Platform screenshots
 └── README.md
 ```
 
@@ -99,67 +92,85 @@ Recipiiy/
 
 ### 🏠 Navigation & Hero
 
-| Hero & Landing Page | Category Portals |
-|:-:|:-:|
-| ![Hero banner home](a.png) | ![Categories on landing](b.png) |
-| *Explore recipes slide-show cover and main navbar* | *Sleek visual grids for popular food category access* |
+**Hero & Landing Page**
+![Hero banner home](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/a.png)
 
-| Dropdown Overlays | |
-|:-:|:-:|
-| ![Footer & Category Dropdown](c.png) | |
-| *Site navigation footer and responsive header categories menu* | |
+---
+
+**Category Portals**
+![Categories on landing](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/b.png)
+
+---
+
+**Dropdown Overlays**
+![Footer & Category Dropdown](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/c.png)
 
 ---
 
 ### 🥗 Recipes & Categories
 
-| Recipes Archive | Interactive Details |
-|:-:|:-:|
-| ![Recipes search page](d.png) | ![Ingredient list details dropdown](e.png) |
-| *Sort filters, search bar, and prep-time badges cards* | *Collapsible ingredients list & preparation guide dropdowns* |
+**Recipes Archive**
+![Recipes search page](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/d.png)
 
-| Dedicated Category Guide | |
-|:-:|:-:|
-| ![Category page grids](f.png) | |
-| *Custom meal types and specific dietary classifications index* | |
+---
+
+**Interactive Details**
+![Ingredient list details dropdown](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/e.png)
+
+---
+
+**Dedicated Category Guide**
+![Category page grids](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/f.png)
 
 ---
 
 ### 💼 Culinary Community & Events
 
-| Culinary Workshops | Recipe Forums |
-|:-:|:-:|
-| ![Events masterclass listings](m.png) | ![Forum threads board](l.png) |
-| *Pasta making, wine tasting, patisserie courses* | *Discussion threads, views counter, and new topic triggers* |
+**Culinary Workshops**
+![Events masterclass listings](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/m.png)
+
+---
+
+**Recipe Forums**
+![Forum threads board](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/l.png)
 
 ---
 
 ### 📖 Blog, FAQ & Info Sections
 
-| Food Blog | FAQ Accordions |
-|:-:|:-:|
-| ![Culinary blog grid](k.png) | ![Frequently Asked Questions page](j.png) |
-| *Weekly kitchen tips, grilling tutorials, and desserts prep articles* | *Self-service collapsible accordion questions* |
+**Food Blog**
+![Culinary blog grid](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/k.png)
 
-| About Recipiiy | Contact Us & Location Maps |
-|:-:|:-:|
-| ![About page](g.png) | ![Contact form and کراچی map](h.png) |
-| *Culinary values statement and project goals overview* | *Message submit forms and Leaflet Map container* |
+---
+
+**FAQ Accordions**
+![Frequently Asked Questions page](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/j.png)
+
+---
+
+**About Recipiiy**
+![About page](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/g.png)
+
+---
+
+**Contact Us & Location Maps**
+![Contact form and map](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/h.png)
 
 ---
 
 ### 🔑 Authentication & Newsletters
 
-| Secure Login | Email Subscriptions |
-|:-:|:-:|
-| ![User login page](i.png) | ![Newsletter signup](n.png) |
-| *Portal authentication form with remember-me choices* | *Updates alerts list and email confirmation inputs* |
+**Secure Login**
+![User login page](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/i.png)
+
+---
+
+**Email Subscriptions**
+![Newsletter signup](https://raw.githubusercontent.com/AnasQ2003/Recipiiy/main/n.png)
 
 ---
 
 ## 🎨 Design System
-
-Recipiiy applies a clean and vibrant CSS variable token system:
 
 ```css
 :root {
@@ -185,15 +196,12 @@ Recipiiy applies a clean and vibrant CSS variable token system:
 
 ## 📄 License
 
-© 2026 **Anas Ahmed Qureshi**. All Rights Reserved.
-
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
 
 ---
 
 <div align="center">
 
 Made with 🍳 by [AnasQ2003](https://github.com/AnasQ2003)
-
-⭐ If you find this project useful, please give it a star!
 
 </div>
